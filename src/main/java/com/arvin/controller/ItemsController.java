@@ -149,4 +149,8 @@ public class ItemsController {
         itemsService.moveItemsById(myid);
         return "redirect:queryitemsbyname.action";
     }
+
+    public static void main(String[] args) {
+        System.out.println("hehe");
+    }
 }
