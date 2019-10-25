@@ -4,19 +4,20 @@ package com.arvin.controller;
 import com.arvin.po.Items;
 import com.arvin.po.ItemsCustom;
 import com.arvin.po.ItemsVO;
+import com.arvin.po.UserDemo;
 import com.arvin.service.ItemsService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.SimpleFormatter;
 
@@ -150,7 +151,12 @@ public class ItemsController {
         return "redirect:queryitemsbyname.action";
     }
 
-    public static void main(String[] args) {
-        System.out.println("hehe");
+    @RequestMapping(value = "/test",method = RequestMethod.POST)
+    @ResponseBody
+    public String test(@RequestBody(required = false) String requestJson) {
+        if (requestJson == null || requestJson == "") {
+            return new String("请求接口需要传递正确的JSON数据");
+        }
+        return requestJson;
     }
 }
