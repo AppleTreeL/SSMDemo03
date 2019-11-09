@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.logging.SimpleFormatter;
 
 @Controller
+@RequestMapping("/origion")
 public class ItemsController {
 
     @Autowired
